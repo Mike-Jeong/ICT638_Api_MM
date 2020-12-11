@@ -18,6 +18,7 @@ namespace UserData
 {
     public class Startup
     {
+        [Obsolete]
         public Startup(Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder().SetBasePath(env.ContentRootPath).

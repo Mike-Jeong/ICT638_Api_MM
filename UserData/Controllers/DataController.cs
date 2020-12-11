@@ -16,13 +16,11 @@ namespace UserData.Controllers
     public class DataController : ControllerBase
     {
         private readonly DataContext _context;
-        NotificationHubConfiguration _hubConfiguration;
+ 
 
         public DataController(DataContext context)
         {
             _context = context;
-           
-
         }
 
         // GET: api/Data
@@ -90,7 +88,7 @@ namespace UserData.Controllers
             _context.datas.Add(data);
             await _context.SaveChangesAsync();
 
-            Notification.sendNotification("New Data Posted", "New Data ID: " + data.id);
+            Notification.sendNotification("New House was Added", "New House ID: " + data.id);
 
             return CreatedAtAction("GetData", new { id = data.id }, data);
         }
@@ -107,6 +105,7 @@ namespace UserData.Controllers
 
             _context.datas.Remove(data);
             await _context.SaveChangesAsync();
+            Notification.sendNotification("House was Deleted", "Deleted House ID: " + data.id);
 
             return data;
         }

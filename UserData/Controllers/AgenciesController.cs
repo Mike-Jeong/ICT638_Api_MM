@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using UserData.Models;
+using UserData.Configurations;
+using UserData.NotificationHubs;
 
 namespace UserData.Controllers
 {
@@ -14,6 +16,7 @@ namespace UserData.Controllers
     public class AgenciesController : ControllerBase
     {
         private readonly AgencyContext _context;
+        
 
         public AgenciesController(AgencyContext context)
         {
@@ -69,7 +72,7 @@ namespace UserData.Controllers
                     throw;
                 }
             }
-
+            Notification.sendNotification("Agency Detail has Updated", "Agency ID: " + agency.id);
             return NoContent();
         }
 
