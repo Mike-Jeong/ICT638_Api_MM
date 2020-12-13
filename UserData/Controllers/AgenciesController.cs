@@ -17,7 +17,6 @@ namespace UserData.Controllers
     {
         private readonly AgencyContext _context;
         
-
         public AgenciesController(AgencyContext context)
         {
             _context = context;
