@@ -16,8 +16,8 @@ namespace UserData.NotificationHubs
         {
 
             NotificationHubConfiguration _hubConfiguration = new NotificationHubConfiguration();
-            _hubConfiguration.ConnectionString = "Endpoint=sb://ict638nidiadec2020.servicebus.windows.net/;SharedAccessKeyName=DefaultFullSharedAccessSignature;SharedAccessKey=4m9VNAj82gtbcbFOVAHZSmfwAkhN9TSeNRR0r5odVQc=";
-            _hubConfiguration.HubName = "ICT638Dec2020";
+            _hubConfiguration.ConnectionString = "Endpoint=sb://ict638mindec2020.servicebus.windows.net/;SharedAccessKeyName=DefaultFullSharedAccessSignature;SharedAccessKey=925tJgnq/Zq7WdSsXCXqGF85xffgqs6s/iO5s7M8VOo=";
+            _hubConfiguration.HubName = "ICT638Min2020";
             NotificationHubProxy notificationHubProxy = new NotificationHubProxy(_hubConfiguration);
             Notification notification = new Notification();
             notification.Content = c;

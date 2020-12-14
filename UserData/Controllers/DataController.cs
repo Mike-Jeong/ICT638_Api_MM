@@ -108,7 +108,11 @@ namespace UserData.Controllers
             _context.datas.Remove(data);
             await _context.SaveChangesAsync();
 
-            return data;
+            Notification.sendNotification("Data Deleted", "Data ID: " + data.id);
+
+            return CreatedAtAction("DeletData", new { id = data.id }, data);
+
+            
         }
 
         private bool DataExists(int id)

@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using UserData.Models;
+using UserData.Configurations;
+using UserData.NotificationHubs;
 
 namespace UserData.Controllers
 {
@@ -57,6 +59,9 @@ namespace UserData.Controllers
             try
             {
                 await _context.SaveChangesAsync();
+                Notification.sendNotification("Agency Detail has Updated", "Agency ID: " + agency.id);
+
+                return CreatedAtAction("DeletData", new { id = agency.id }, agency);
             }
             catch (DbUpdateConcurrencyException)
             {
